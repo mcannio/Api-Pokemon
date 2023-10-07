@@ -48,9 +48,7 @@ const listaPokemon = async () => {
         const p = document.createElement("p")
         p.innerText = pokemon.type;
         div4.appendChild(h1);
-        div4.appendChild(p);
-        
-
+        div4.appendChild(p);     
 
 
         div3.appendChild(img); 
@@ -59,6 +57,43 @@ const listaPokemon = async () => {
         div.appendChild(div2);
         li.appendChild(div);        
         ol.appendChild(li);
+
+        const listaPokemon = (pokemonList) => {
+            const input$$ = document.querySelector("input");
+          
+            input$$.addEventListener("input", () =>
+              searchPokemons(input$$.value, pokemonList)
+            );
+          };
+          
+          const searchPokemons = (filtro, pokemons) => {
+            let pokemonsFiltrados = pokemons.filter((pokemon) =>
+              pokemon.name.toLowerCase().includes(filtro.toLowerCase())
+            );
+          
+            listaPokemon(pokemonsFiltrados);
+          };
+
+        
+        // const searchPokemon = async () => {
+        //     const searchTerm = document.getElementById('pokemonName').value.toLowerCase();
+        //     const filteredPokemon = await getPokemon();
+        //     const searchResults = filteredPokemon.filter(pokemon => pokemon.name.includes(searchTerm));
+        //     const ol = document.getElementById('pokedex');
+        //     ol.innerHTML = '';
+        //     for (const pokemon of searchResults) {
+                
+        //     }
+        
+        
+        // const input$$ = document.querySelector("input");
+        // let searchPokemons = (filtro, pokemons) =>{
+        //     console.log(filtro, pokemons);
+        // }
+        // input$$.addEventListener("click",()=>
+        // searchPokemons(input$$.value, pokemonList);
+        // console.log(searchPokemons(input$$, pokemonList));
+        
     }
 }
 listaPokemon()
