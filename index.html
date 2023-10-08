@@ -8,7 +8,11 @@
     <script src="./pokedex.js" defer></script>
 </head>
 
-<body>
+<body onload="myFunction()" style="margin:0;"></body>
+<div class="ring" id="ring">Loading
+    <span></span>
+  </div>
+<div style="display:none;" id="myDiv" class="animate-bottom">
     <header>
         <img class = "logo"src="./assets/logo.png"></img>
         <img class = "pokeball"src="./assets/pokeball.png"></img>
@@ -17,9 +21,11 @@
             <button id="searchButton">Buscar</button>           
         </section> 
     </header>
-    <div class= "container"></div>        
+    <div class= "container">        
         <ol id="pokedex"></ol>
-    
-    
+        
+    </div>    
+    </div>
+</div>  
 </body>
 </html>
