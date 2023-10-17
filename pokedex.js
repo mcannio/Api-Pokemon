@@ -27,7 +27,7 @@ const getPokemon = async () => { // RECOJO DATOS DE LA API Y LOS ALMACENO EN UN 
     
 }   
 
-const listaPokemon = async (searchTerm ="") => {  //¿?
+const listaPokemon = async (searchTerm ="") => { 
     const pokemonList = await getPokemon();
     const filteredPokemonList = filtrarPokemon(pokemonList, searchTerm); // BUSCO POR NOMBRE
     // console.log(pokemonList);    
@@ -74,24 +74,22 @@ const filtrarPokemon = (pokemonList, searchTerm) => {
         return pokemon.name.toLowerCase().includes(searchTerm.toLowerCase());
     });
 };
+
 function mayus(palabra) { // FUNCIÓN PARA PONER EN MAYÚSCULA LA PRIMERA LETRA DEL NOMBRE
     return palabra.charAt(0).toUpperCase() + palabra.slice(1);
 }
 listaPokemon(); // LLAMO A LA FUNCIÓN PRINCIPAL
-const searchButton = document.getElementById('searchButton'); //BUSCADOR
+const searchButton = document.getElementById('searchButton'); //BOTONES BUSCADOR
 const searchInput = document.getElementById('searchInput');
 searchButton.addEventListener('click', () => {
     const searchTerm = searchInput.value;
     listaPokemon(searchTerm);
 });
 
-var myVar; // LE PONGO AL INICIO UNA BARRA DE CARGA
-
+let load; // LE PONGO AL INICIO UNA BARRA DE CARGA
 function myFunction() { 
-  myVar = setTimeout(showPage, 2500);
-  
+  load = setTimeout(showPage, 2500);  
 }
-
 function showPage() {
   document.getElementById("ring").style.display = "none";
   document.getElementById("myDiv").style.display = "block";
